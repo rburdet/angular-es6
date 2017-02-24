@@ -1,25 +1,19 @@
 import angular from 'angular';
+import route from './routes';
+import uiRouter from 'angular-ui-router';
+import LoginService from './services/loginService';
 
-import '../style/app.css';
 
-let app = () => {
-  return {
-    template: require('./app.html'),
-    controller: 'AppCtrl',
-    controllerAs: 'app'
-  }
-};
 
-class AppCtrl {
-  constructor() {
-    this.url = 'https://github.com/preboot/angular-webpack';
-  }
-}
+//class AppCtrl {
+//  constructor() {
+//    this.url = 'https://github.com/preboot/angular-webpack';
+//  }
+//}
 
-const MODULE_NAME = 'app';
+const MODULE_NAME = 'inbox';
 
-angular.module(MODULE_NAME, [])
-  .directive('app', app)
-  .controller('AppCtrl', AppCtrl);
+angular.module(MODULE_NAME, [uiRouter])
+	.factory('LoginService',LoginService)
+	.config(route);
 
-export default MODULE_NAME;
