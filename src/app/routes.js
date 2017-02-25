@@ -5,9 +5,12 @@ function route($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('login', {
 		url: '/login',
 		templateUrl : 'partials/login.html',
-	controller : loginCtrl,
-	controllerAs : loginCtrl
-});
+	controller : loginCtrl
+	})
+		.state('home',{
+			url: '/home',
+			templateUrl : 'partials/home.html'
+		});
 }
 
 export default route;

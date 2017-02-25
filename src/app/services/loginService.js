@@ -1,6 +1,7 @@
 'use strict';
 
 import angular from 'angular';
+import BPMRest from '../../../lib/bpm-rest';
 //class LoginService{
 //	constructor(){
 //		console.log("constructor login");
@@ -23,6 +24,10 @@ export default function LoginService() {
 		},
 		isAuthenticated : function() {
 			return isAuthenticated;
+		},
+		auth : (username,password) => {
+			var bpm = new BPMRest(username,password);
+			return bpm.testLogin();
 		}
 	};
 }
